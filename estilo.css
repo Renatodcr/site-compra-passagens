@@ -1,0 +1,15 @@
+form{
+    margin: auto;
+    width: 300px;
+    background-color: aqua;
+    padding: 10px;
+    box-sizing: border-box;
+    
+}
+p{
+    margin: auto;
+    width: 300px;
+    background-color: #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}

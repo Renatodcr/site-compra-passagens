@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Compra de Passagens</title>
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+        <script src="js/jquery-3.4.1.js"></script>
+        <script src="script.js"></script>
+        <script>
+            $(function(){
+                $("#calc").click(function(){
+                    $("#resultado").empty();
+                    $("#svazio").empty();
+                    $("#escori").empty();
+                    $("#escdes").empty();
+                    $("#quant").empty();
+                    var classe = $("#classe").val();
+                    var quant = parseInt($("#quantidade").val());
+                    var tipo_o = parseInt($("input[name=origem]:checked").val());
+                    var tipo_d = parseInt($("input[name=destino]:checked").val());
+                    var o;
+                    var d;
+                    var valorTotal;
+                    if(validaCampos()==true){
+                        switch (tipo_o){
+                                case 1:
+                                    o = 1;
+                                    break;
+                                case 2:
+                                    o = 2;
+                                    break;
+                                case 3:
+                                    o = 3;
+                                    break;
+                                default:
+                                    o = -1;
+                            }
+                            switch (tipo_d){
+                                case 4:
+                                    d = 1;
+                                    break;
+                                case 5:
+                                    d = 2;
+                                    break;
+                                case 6:
+                                    d = 3;
+                                    break;
+                                default:
+                                    d = -1;
+                            }
+                        if(classe == "Econômica"){
+                            
+                            if(o == 1 && d == 2){
+                                valorTotal = quant*648.99;
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 1 && d == 3){
+                                valorTotal = quant*450.50;
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 2 && d == 1){
+                                valorTotal = quant*331.75;
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 2 && d == 3){
+                                valorTotal = quant*176.88;
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 3 && d == 1){
+                                valorTotal = quant*419.43;
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 3 && d == 2){
+                                valorTotal = quant*209.51;
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                        }
+                        else if(classe == "Executiva"){
+                           
+                            if(o == 1 && d == 2){
+                                valorTotal = quant*648.99;
+                                valorTotal = valorTotal + (valorTotal*0.10);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 1 && d == 3){
+                                valorTotal = quant*450.50;
+                                valorTotal = valorTotal + (valorTotal*0.10);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 2 && d == 1){
+                                valorTotal = quant*331.75;
+                                valorTotal = valorTotal + (valorTotal*0.10);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 2 && d == 3){
+                                valorTotal = quant*176.88;
+                                valorTotal = valorTotal + (valorTotal*0.10);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 3 && d == 1){
+                                valorTotal = quant*419.43;
+                                valorTotal = valorTotal + (valorTotal*0.10);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 3 && d == 2){
+                                valorTotal = quant*209.51;
+                                valorTotal = valorTotal + (valorTotal*0.10);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                        }
+                        else{
+                           
+                            if(o == 1 && d == 2){
+                                valorTotal = quant*648.99;
+                                valorTotal = valorTotal + (valorTotal*0.15);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 1 && d == 3){
+                                valorTotal = quant*450.50;
+                                valorTotal = valorTotal + (valorTotal*0.15);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 2 && d == 1){
+                                valorTotal = quant*331.75;
+                                valorTotal = valorTotal + (valorTotal*0.15);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 2 && d == 3){
+                                valorTotal = quant*176.88;
+                                valorTotal = valorTotal + (valorTotal*0.15);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 3 && d == 1){
+                                valorTotal = quant*419.43;
+                                valorTotal = valorTotal + (valorTotal*0.15);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                            else if(o == 3 && d == 2){
+                                valorTotal = quant*209.51;
+                                valorTotal = valorTotal + (valorTotal*0.15);
+                                $("#resultado").html("O valor total é: "+valorTotal.toFixed(2));
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            <h3>Turismo</h3>
+            <strong>Classe:</strong> 
+            <select id="classe">
+                <option value="">--Escolha a classe--</option>
+                <option value="Econômica">Econômica</option>
+                <option value="Executiva">Executiva</option>
+                <option value="1ªClasse">1ª Classe</option>
+            </select><br/>
+            <span id="svazio"></span>
+            <br/>
+            <strong>Origem: </strong><br/>
+            <input type="radio" name="origem" id="b" value="1">Belo Horizonte<br/>
+            <input type="radio" name="origem" id="s" value="2">Rio de Janeiro<br/>
+            <input type="radio" name="origem" id="r" value="3">São Paulo<br/>
+            <span id="escori"></span>
+            <br/><br/>
+            <strong>Destino: </strong><br/>
+            <input type="radio" name="destino" id="h" value="4">Belo Horizonte<br/>
+            <input type="radio" name="destino" id="p" value="5">Rio de Janeiro<br/>
+            <input type="radio" name="destino" id="j" value="6">São Paulo<br/>
+            <span id="escdes"></span><br/>
+            <strong>Quantidade Passageiros:</strong><br/>
+            <input type="text" id="quantidade"><br/>
+            <span id="quant"></span><br/><br/>
+            <input type="button" id="calc" value="Calcular"><br/><br/>
+
+
+        </form>
+        <p id="resultado">Resultado</p>
+
+    </body>
+</html>
